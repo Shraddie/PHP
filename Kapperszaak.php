@@ -4,6 +4,7 @@
 	<head>
 		<style>
 			body {
+				
 				margin-top: 50px;
 				text-align: center;
 				font: 2vw "Arial";
@@ -49,8 +50,9 @@
 		
 		<!-- FORMULIER -->
 		<h1>Maak een afspraak:</h1>
-		<form action="hairdressersanders" method="post">
+		<form action="Kapperszaak.php" method="post">
 			De volgende momenten zijn nog beschikbaar:
+			
 			<select name="time">
 				<?php
 					foreach($kappersagenda as $tijdstip => $klantnaam) {
@@ -61,7 +63,7 @@
 				?>
 			</select>
 			<br>
-			<input type="text" name="name" placeholder="Voor- en achternaam">
+			<input type="text" name="name" placeholder="Naam">
 			<br>
 			<button type="submit" name="submit">Submit</button>
 			<?php

@@ -40,3 +40,6 @@ handlers:
   
 - url: /webshop
   script: Webshop.php
+  
+- url: /functies
+  script: Functies.php

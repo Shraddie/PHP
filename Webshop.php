@@ -70,10 +70,9 @@ div#autoselectie {
 	max-width: 1200px;
 }
 </style>
-</form>
 <body>	
 
-<form>
+<form method="post">
 <select name="merk">
 <option value="alle">Alle merken</option>
 <option value="Ford">Ford</option>
@@ -141,41 +140,46 @@ div#autoselectie {
 	}
 	
 	$lijst = array(
-		new Auto("Ford", "Fiesta", 23.999, "img/fordfiesta.jpg"),
-		new Auto("Ford", "Focus", 18.995, "img/fordfocus.jpg"),
-		new Auto("Opel", "Astra", 14.895, "img/opelastra.jpg"),
-		new Auto("Opel", "Insignia", 65.450, "img/opelinsignia.jpg"),
-		new Auto("Subaru", "Forester", 34.750, "img/subaruforester.jpg"),
-		new Auto("Subaru", "Impreza", 28.345, "img/subaruimpreza.jpg"),
-		new Auto("Mercedes", "E 63", 110.995, "img/mercedede63.png"),
-		new Auto("Mercedes", "CLA 45", 190.780, "img/mercedescla45.jpg"),
-		new Auto("Mercedes", "E 230", 1.000, "img/mercedese230.jpg"),
+		new Auto("Ford", "Fiesta", 23999, "img/fordfiesta.jpg"),
+		new Auto("Ford", "Focus", 18995, "img/fordfocus.jpg"),
+		new Auto("Opel", "Astra", 14895, "img/opelastra.jpg"),
+		new Auto("Opel", "Insignia", 65450, "img/opelinsignia.jpg"),
+		new Auto("Subaru", "Forester", 34750, "img/subaruforester.jpg"),
+		new Auto("Subaru", "Impreza", 28345, "img/subaruimpreza.jpg"),
+		new Auto("Mercedes", "E 63", 110995, "img/mercedede63.png"),
+		new Auto("Mercedes", "CLA 45", 190780, "img/mercedescla45.jpg"),
+		new Auto("Mercedes", "E 230", 1000, "img/mercedese230.jpg"),
 		new Auto("Mercedes", "C 250", 599, "img/mercedesc250.jpg"),
-		new Auto("Ferrari", "612 GTO", 350.500, "img/ferrari612.jpg"),
-		new Auto("Ferrari", "California", 210.780, "img/ferraricalifornia.jpg"),
-		new Auto("Ferrari", "458", 280.775, "img/ferrari458.jpg"),
-		new Auto("Lotus", "Elise CR", 48.591, "img/lotuselisecr.jpg"),
-		new Auto("Lotus", "Elise S CR", 60.079, "img/lotuselisescr.jpg"),
+		new Auto("Ferrari", "612 GTO", 350500, "img/ferrari612.jpg"),
+		new Auto("Ferrari", "California", 210780, "img/ferraricalifornia.jpg"),
+		new Auto("Ferrari", "458", 280775, "img/ferrari458.jpg"),
+		new Auto("Lotus", "Elise CR", 48591, "img/lotuselisecr.jpg"),
+		new Auto("Lotus", "Elise S CR", 60079, "img/lotuselisescr.jpg"),
 		new Auto("Citroen", "2CV", 459, "img/citroen2cv.jpg"),
-		new Auto("Volvo", "V40", 1.250, "img/volvov40.jpg"),
-		new Auto("Mini", "Cooper", 34.495, "img/minicooper.jpg")
+		new Auto("Volvo", "V40", 1250, "img/volvov40.jpg"),
+		new Auto("Mini", "Cooper", 34495, "img/minicooper.jpg")
 	);
-	
-	foreach ($lijst as $auto) {
-		if (
-				!isset($_GET["submit"])
-				|| (
-						isset($_GET["submit"])
-						&& ($auto->getPrijs() >= $_GET["min"] || $_GET["min"] == "")
-						&& ($auto->getPrijs() <= $_GET["max"] || $_GET["max"] == "")
-						&& ($auto->getMerk() == $_GET["merk"] || $_GET["merk"] == "alle")
-						)
-				) {
-		echo "<div class='autokader'>";
-		echo "<p class='merktype'>".$auto->getMerk()." ".$auto->getType()."</p><br>";
-		echo "<p class='prijs'> € ".$auto->getPrijs().",-</p><br>";
-		echo "<img src='".$auto->getFotoURL()."'><br><br>";
-		echo "</div>";
+	if(!isset($_POST["submit"])) {
+		foreach ($lijst as $auto) {
+			
+			echo "<div class='autokader'>";
+			echo "<p class='merktype'>".$auto->getMerk()." ".$auto->getType()."</p>";
+			echo "<p class='prijs'> € ".$auto->getPrijs().",-</p>";
+			echo "<img src='".$auto->getFotoURL()."'>";
+			echo "</div>";
+		}
+	} else {
+		foreach ($lijst as $auto) {
+			if($_POST["merk"] == "alle" || $_POST["merk"] == $auto->getMerk()) {
+				if(($_POST["min"] <= $auto->getPrijs() || $_POST["min"] == "") &&
+						($_POST["max"] >= $auto->getPrijs() || $_POST["max"] == "")){
+					echo "<div class='autokader'>";
+					echo "<p class='merktype'>".$auto->getMerk()." ".$auto->getType()."</p>";
+					echo "<p class='prijs'> € ".$auto->getPrijs().",-</p>";
+					echo "<img src='".$auto->getFotoURL()."'>";
+					echo "</div>";
+				}
 			}
+		}
 	}
 ?>
