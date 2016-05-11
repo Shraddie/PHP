@@ -43,3 +43,6 @@ handlers:
   
 - url: /functies
   script: Functies.php
+  
+- url: /webpagina
+  script: Webpagina.php
