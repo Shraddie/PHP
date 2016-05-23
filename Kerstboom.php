@@ -2,13 +2,14 @@
 <head><style>*{text-align:center;}</style></head>
 </html>
 <?php
-$ster = 15;
-for($i=0;$i<$ster;$i++){
+	$ster = 15;
+	for($i=0; $i<$ster; $i++){
 
            
-        for($j=0;$j<(2*$i)-1;$j++)
+        for($j=0; $j<($i); $j++) {
                 echo "*";
-
-        echo "<br />";
+        }
+        echo "<br>";
+        
 }
 ?>

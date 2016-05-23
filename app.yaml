@@ -46,3 +46,12 @@ handlers:
   
 - url: /webpagina
   script: Webpagina.php
+  
+- url: /form
+  script: Form.php
+  
+- url: /test
+  script: test.php
+  
+- url: /project
+  script: project.php

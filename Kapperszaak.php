@@ -2,32 +2,7 @@
 
 <html>
 	<head>
-		<style>
-			body {
-				
-				margin-top: 50px;
-				text-align: center;
-				font: 2vw "Arial";
-			}
-			h1 {
-				font: bold 3vw "Arial";
-			}
-			form, select, input, button {
-				margin: 5px;
-				font: 1vw "Arial";
-				text-align: center;
-			}
-			table {
-				margin: 50px auto;
-			}
-			th {
-				text-decoration: underline;
-				padding: 10px 30px;
-			}
-			td {
-				padding: 5px 20px;
-			}
-		</style>
+		
 		<title>Kapperszaak Sanders</title>
 	</head>
 	

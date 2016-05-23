@@ -75,15 +75,17 @@ div#autoselectie {
 <form method="post">
 <select name="merk">
 <option value="alle">Alle merken</option>
-<option value="Ford">Ford</option>
-<option value="Opel">Opel</option>
-<option value="Subaru">Subaru</option>
-<option value="Mercedes">Mercedes</option>
-<option value="Ferrari">Ferrari</option>
-<option value="Lotus">Lotus</option>
-<option value="Citroen">Citroen</option>
-<option value="Volvo">Volvo</option>
-<option value="Mini">Mini Cooper</option>
+<?php
+				$merken = array();
+				foreach ($lijst as $auto) {
+					if (!in_array($auto->getMerk(), $merken)) {
+						array_push($merken, $auto->getMerk());
+					}
+				}
+				foreach ($merken as $merk) {
+					echo "<option value=".$merk.">".$merk."</option>";
+				}
+			?>
 </select>
 <input type="text" placeholder="Minimum prijs" name="min">
 <input type="text" placeholder="Maximum prijs" name="max"> 
