@@ -1,14 +1,18 @@
 <?php
 
-	foreach ($_GET as $ding) {
-		echo $ding."<br>";
-	
-	}
-	
-	if() {
+if ($_POST["inlognaam"] != "" && $_POST["adres"] != "" && $_POST["email"] != "" && $_POST["wachtwoord"] != "") {	
 		
-	}
-	print_r($_GET);
-	
+	echo "Naam: ".$_POST["inlognaam"];
+	echo "<br> Adres: ".$_POST["adres"];
+	echo "<br> E-mail: ".$_POST["email"];
+	echo "<br> Wachtwoord: ";
 
+	for ($i = 0; $i < iconv_strlen($_POST["wachtwoord"]); $i++) {
+		echo "&bull;";
+		}
+	}
+	else  {
+		echo "Vul alles in";
+	}
+	?>
 

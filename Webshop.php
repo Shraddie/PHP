@@ -76,6 +76,26 @@ div#autoselectie {
 <select name="merk">
 <option value="alle">Alle merken</option>
 <?php
+	$lijst = array(
+			new Auto("Ford", "Fiesta", 23999, "img/fordfiesta.jpg"),
+			new Auto("Ford", "Focus", 18995, "img/fordfocus.jpg"),
+			new Auto("Opel", "Astra", 14895, "img/opelastra.jpg"),
+			new Auto("Opel", "Insignia", 65450, "img/opelinsignia.jpg"),
+			new Auto("Subaru", "Forester", 34750, "img/subaruforester.jpg"),
+			new Auto("Subaru", "Impreza", 28345, "img/subaruimpreza.jpg"),
+			new Auto("Mercedes", "E 63", 110995, "img/mercedede63.png"),
+			new Auto("Mercedes", "CLA 45", 190780, "img/mercedescla45.jpg"),
+			new Auto("Mercedes", "E 230", 1000, "img/mercedese230.jpg"),
+			new Auto("Mercedes", "C 250", 599, "img/mercedesc250.jpg"),
+			new Auto("Ferrari", "612 GTO", 350500, "img/ferrari612.jpg"),
+			new Auto("Ferrari", "California", 210780, "img/ferraricalifornia.jpg"),
+			new Auto("Ferrari", "458", 280775, "img/ferrari458.jpg"),
+			new Auto("Lotus", "Elise CR", 48591, "img/lotuselisecr.jpg"),
+			new Auto("Lotus", "Elise S CR", 60079, "img/lotuselisescr.jpg"),
+			new Auto("Citroen", "2CV", 459, "img/citroen2cv.jpg"),
+			new Auto("Volvo", "V40", 1250, "img/volvov40.jpg"),
+			new Auto("Mini", "Cooper", 34495, "img/minicooper.jpg")
+	);
 				$merken = array();
 				foreach ($lijst as $auto) {
 					if (!in_array($auto->getMerk(), $merken)) {
@@ -141,26 +161,7 @@ div#autoselectie {
 		
 	}
 	
-	$lijst = array(
-		new Auto("Ford", "Fiesta", 23999, "img/fordfiesta.jpg"),
-		new Auto("Ford", "Focus", 18995, "img/fordfocus.jpg"),
-		new Auto("Opel", "Astra", 14895, "img/opelastra.jpg"),
-		new Auto("Opel", "Insignia", 65450, "img/opelinsignia.jpg"),
-		new Auto("Subaru", "Forester", 34750, "img/subaruforester.jpg"),
-		new Auto("Subaru", "Impreza", 28345, "img/subaruimpreza.jpg"),
-		new Auto("Mercedes", "E 63", 110995, "img/mercedede63.png"),
-		new Auto("Mercedes", "CLA 45", 190780, "img/mercedescla45.jpg"),
-		new Auto("Mercedes", "E 230", 1000, "img/mercedese230.jpg"),
-		new Auto("Mercedes", "C 250", 599, "img/mercedesc250.jpg"),
-		new Auto("Ferrari", "612 GTO", 350500, "img/ferrari612.jpg"),
-		new Auto("Ferrari", "California", 210780, "img/ferraricalifornia.jpg"),
-		new Auto("Ferrari", "458", 280775, "img/ferrari458.jpg"),
-		new Auto("Lotus", "Elise CR", 48591, "img/lotuselisecr.jpg"),
-		new Auto("Lotus", "Elise S CR", 60079, "img/lotuselisescr.jpg"),
-		new Auto("Citroen", "2CV", 459, "img/citroen2cv.jpg"),
-		new Auto("Volvo", "V40", 1250, "img/volvov40.jpg"),
-		new Auto("Mini", "Cooper", 34495, "img/minicooper.jpg")
-	);
+	
 	if(!isset($_POST["submit"])) {
 		foreach ($lijst as $auto) {
 			
